@@ -14,7 +14,7 @@ from rich.prompt import IntPrompt, Prompt
 
 from core.logger import ResultsStore
 from core.spider import SpiderNet
-from modules.platform_check import parse_target
+from modules.platform_check import PLATFORM_CATALOG, parse_target
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -64,6 +64,7 @@ def main() -> int:
             f"[bold]Username:[/bold] {username}\n"
             f"[bold]Plataforma origen:[/bold] {parsed['source_platform'] or 'n/a'}\n"
             f"[bold]max_depth:[/bold] {max_depth}\n"
+            f"[bold]Plataformas:[/bold] {len(PLATFORM_CATALOG)}\n"
             f"[bold]Log:[/bold] {Path('logs/results.json').resolve()}",
             title="SpiderNet V2",
             border_style="cyan",
